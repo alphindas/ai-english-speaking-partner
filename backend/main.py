@@ -45,15 +45,11 @@ if GOOGLE_API_KEY:
     print(f"GOOGLE_API_KEY found in environment (starting with {GOOGLE_API_KEY[:4]}...)")
     try:
         genai.configure(api_key=GOOGLE_API_KEY)
-else:
-    import os
-    print(f"DEBUG: Available env keys: {list(os.environ.keys())}")
         # listing available models to debug
         available_models = [m.name for m in genai.list_models()]
         print(f"Available models count: {len(available_models)}")
         
         # Priority list for models likely to have better quotas
-        # Gemma 3 models are currently working well in this environment
         priority_models = [
             'models/gemma-3-27b-it',
             'models/gemma-3-12b-it',
@@ -85,6 +81,8 @@ else:
     except Exception as e:
         print(f"Error configuring Gemini API: {e}")
 else:
+    import os
+    print(f"DEBUG: Available env keys: {list(os.environ.keys())}")
     print("WARNING: GOOGLE_API_KEY not found. Running in MOCK mode.")
 
 CHAT_PROMPT = """

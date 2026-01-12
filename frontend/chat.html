@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | AI English Speaking Partner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="chat-page-body">
+    <!-- Background Elements -->
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="glass-card chat-container">
+        <!-- Chat Header -->
+        <header class="chat-header">
+            <div class="header-info">
+                <div id="mode-icon" class="mode-icon-small" style="font-size: 1.5rem;">💬</div>
+                <div>
+                    <h2 id="mode-title" style="font-size: 1.2rem; margin-bottom: 2px;">Friendly Chat</h2>
+                    <span class="mode-badge" id="mode-badge">Active</span>
+                </div>
+            </div>
+            <a href="index.html" class="action-btn" title="Go Back" style="text-decoration: none;">✕</a>
+        </header>
+
+        <!-- Interview Progress (Hidden by default) -->
+        <div id="interview-progress" class="progress-container" style="display: none;">
+            <div
+                style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px; color: var(--text-muted);">
+                <span>Progress</span>
+                <span id="question-counter">Question 1/5</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 20%;"></div>
+            </div>
+        </div>
+
+
+        <!-- Chat Area -->
+        <main class="chat-area" id="chat-messages">
+            <!-- Messages will be dynamically added here -->
+            <div class="message ai-message">
+                Hello! I'm your AI English partner. How are you feeling today?
+            </div>
+        </main>
+
+        <!-- Typing Indicator -->
+        <div id="typing-indicator" class="typing-indicator" style="display: none; padding: 0 30px 10px 30px;">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <button id="mic-btn" class="action-btn" title="Voice Input">🎤</button>
+            <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+            </div>
+            <button id="send-btn" class="action-btn send-btn" title="Send Message">➤</button>
+        </div>
+    </div>
+
+    <!-- Grammar Correction Popup (Subtle) -->
+    <div id="grammar-tip" class="glass-card"
+        style="position: fixed; bottom: 100px; right: 20px; max-width: 300px; padding: 15px; display: none; border-left: 4px solid var(--accent-secondary); animation: fadeInUp 0.5s ease;">
+        <div style="font-size: 0.8rem; font-weight: 600; color: var(--accent-secondary); margin-bottom: 5px;">TUTOR TIP
+        </div>
+        <p id="tip-text" style="font-size: 0.85rem; line-height: 1.4;"></p>
+        <button onclick="document.getElementById('grammar-tip').style.display='none'"
+            style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.7rem; margin-top:8px;">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

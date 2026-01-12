@@ -43,11 +43,11 @@ TARGET_MODEL_NAME = ""
 
 if GOOGLE_API_KEY:
     print(f"GOOGLE_API_KEY found in environment (starting with {GOOGLE_API_KEY[:4]}...)")
+    try:
+        genai.configure(api_key=GOOGLE_API_KEY)
 else:
     import os
     print(f"DEBUG: Available env keys: {list(os.environ.keys())}")
-    try:
-        genai.configure(api_key=GOOGLE_API_KEY)
         # listing available models to debug
         available_models = [m.name for m in genai.list_models()]
         print(f"Available models count: {len(available_models)}")

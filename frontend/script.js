@@ -126,9 +126,12 @@ async function handleUserMessage() {
     setTyping(true);
 
     try {
-        // Use actual API endpoint if available, otherwise use mock logic
-        // This connects to the backend running on port 8000
-        const response = await fetch('/chat', {
+        // Detect the correct API URL: Use localhost if running locally, otherwise use relative path
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
+            ? 'http://localhost:8000/chat'
+            : '/chat';
+
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

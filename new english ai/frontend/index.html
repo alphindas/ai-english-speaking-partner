@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI English Speaking Partner | Choose Your Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="background-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+
+    <div class="landing-container">
+        <header class="header-section">
+            <h1>AI English Speaking Partner</h1>
+            <p class="subtitle">Elevate your English with immersive AI conversation</p>
+        </header>
+
+        <div class="mode-grid">
+            <!-- Mode 1: Friendly Chat -->
+            <div class="glass-card mode-card" onclick="selectMode('chat')">
+                <div class="mode-icon">💬</div>
+                <h3>Friendly Chat</h3>
+                <p>Natural conversation like a supportive friend. No pressure, just practice.</p>
+            </div>
+
+            <!-- Mode 2: English Tutor -->
+            <div class="glass-card mode-card" onclick="selectMode('tutor')">
+                <div class="mode-icon">📘</div>
+                <h3>English Tutor</h3>
+                <p>Professional feedback on your grammar and pronunciation. Learn as you go.</p>
+            </div>
+
+            <!-- Mode 3: Interview Prep -->
+            <div class="glass-card mode-card" onclick="selectMode('interview')">
+                <div class="mode-icon">🎤</div>
+                <h3>Interview Prep</h3>
+                <p>Mock interview simulations for job seekers. Formal and focused practice.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectMode(mode) {
+            // Animate card before redirect (optional but nice)
+            window.location.href = `chat.html?mode=${mode}`;
+        }
+    </script>
+</body>
+
+</html>
